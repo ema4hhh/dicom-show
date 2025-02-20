@@ -1,11 +1,18 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import '@/styles/globals.css'
 import Layout from '../layouts/Layout.astro';
+import SlideShow from '../components/SlideShow'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const URL = "http://localhost:5000/file"
+const response = await fetch(URL)
+const { dicom_list } = await response.json()
+
+const orderedImages = dicom_list.sort(new Intl.Collator("es").compare)
+
+console.log(orderedImages)
 ---
 
 <Layout>
-	<Welcome />
+<h1 class="font-semibold text-4xl">Welcome</h1>
+    <SlideShow client:load images={orderedImages} URL={URL} />
 </Layout>
