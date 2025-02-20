@@ -3,7 +3,7 @@ import '@/styles/globals.css'
 import Layout from '../layouts/Layout.astro';
 import SlideShow from '../components/SlideShow'
 
-const URL = "http://localhost:5000/file"
+const URL = import.meta.env.API || "http://localhost:5000/file"
 const response = await fetch(URL)
 const { dicom_list } = await response.json()
 
