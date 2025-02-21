@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function useImage(actualImage: number, images: string[], URL: string) {
+function useImageUrl(actualImage: number, images: string[], URL: string) {
   const [imageUrl, setImageUrl] = useState<string>(URL + "/" + images[actualImage]);
 
   useEffect(() => {
@@ -10,4 +10,4 @@ function useImage(actualImage: number, images: string[], URL: string) {
   return imageUrl;
 }
 
-export default useImage;
+export default useImageUrl;

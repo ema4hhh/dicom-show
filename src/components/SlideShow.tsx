@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import Card from "./ui/card";
 import SliderComponent from "./ui/slider";
-import useImage from "./hooks/useImage";
+import useImageUrl from "./hooks/useImageUrl";
 import useImageSlider from "./hooks/useImageSlider";
 
 function SlideShow({ images, URL }: { images: string[], URL: string }) {
   const { actualImage, sliderValue, setActualImage, setSliderValue } = useImageSlider(images)
-  const imageUrl = useImage(actualImage, images, URL)
+  const imageUrl = useImageUrl(actualImage, images, URL)
   
   const handleNextImage = () => {
     setSliderValue(sliderValue + 1)
