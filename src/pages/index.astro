@@ -8,8 +8,6 @@ const response = await fetch(URL)
 const { dicom_list } = await response.json()
 
 const orderedImages = dicom_list.sort(new Intl.Collator("es").compare)
-
-console.log(orderedImages)
 ---
 
 <Layout>

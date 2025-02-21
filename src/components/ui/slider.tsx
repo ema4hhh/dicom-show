@@ -1,9 +1,10 @@
 import * as React from "react";
 import { Slider } from "radix-ui";
 
-function SliderComponent({ actualImage, setActualImage, max }) {
+function SliderComponent({ actualImage, setSliderValue, max }) {
   const handleChange = (number) => {
-    setActualImage(number[0])
+    if(number[0] === 0) return setSliderValue(number[0]);
+    setSliderValue(number[0] - 1)
   }
   
   return(
