@@ -2,8 +2,10 @@
 import '@/styles/globals.css'
 import Layout from '../layouts/Layout.astro';
 import SlideShow from '../components/SlideShow'
+import DownloadForm from "../components/DownloadForm"
 
-const URL = import.meta.env.API || "http://localhost:5000/file"
+const URL = import.meta.env.FILE || "http://localhost:5000/file"
+const API = import.meta.env.VIDEO || "http://localhost:5000/video"
 const response = await fetch(URL)
 const { dicom_list } = await response.json()
 
@@ -13,4 +15,5 @@ const orderedImages = dicom_list.sort(new Intl.Collator("es").compare)
 <Layout>
 <h1 class="font-semibold text-4xl">Welcome</h1>
     <SlideShow client:load images={orderedImages} URL={URL} />
+    <DownloadForm client:load API={API}/>
 </Layout>
