@@ -24,16 +24,7 @@ function SlideShow({ images, URL }: { images: string[], URL: string }) {
       
       <SliderComponent actualImage={actualImage + 1} setSliderValue={setSliderValue} max={ images.length } />
       
-      <div>Actual Image: <b>{ actualImage + 1 }</b> </div>
-      
-      <div className="flex flex-row">
-        <button onClick={handlePrevImage}>
-          <ArrowLeftIcon />
-        </button>
-        <button onClick={handleNextImage}>
-          <ArrowRightIcon />
-        </button>
-      </div>
+      <div className="absolute top-1 right-1 bg-slate-300 py-1 px-2 rounded-md">Actual Image: <b>{ actualImage + 1 }</b> </div>
     </>
   );
 }
